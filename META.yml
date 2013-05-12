@@ -25,12 +25,16 @@ requires:
   Carp: 0
   HTTP::Tiny: 0
   JSON: 0
+  Moo: 0
   Try::Tiny: 0
+  Type::Utils: 0
+  Types::Standard: 0
   URI: 0
   URI::QueryParam: 0
+  perl: 5.010
   strict: 0
   warnings: 0
 resources:
-  bugtracker: http://github.com/sanko/www-thisismyjam/issues
-  repository: http://github.com/sanko/www-thisismyjam
-version: v0.0.1
+  homepage: https://github.com/sanko/www-thisismyjam
+  repository: https://github.com/sanko/www-thisismyjam.git
+version: v0.0.2

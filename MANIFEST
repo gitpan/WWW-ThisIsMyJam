@@ -6,12 +6,9 @@ MANIFEST.SKIP
 META.yml
 Makefile.PL
 README
-README.md
-README.pod
 TODO
 ex/jamdump.pl
 lib/WWW/ThisIsMyJam.pm
-lib/WWW/ThisIsMyJam.pod
 t/00-compile.t
 t/async.t
 t/person.t

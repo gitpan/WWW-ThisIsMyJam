@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-
+use 5.010;
 
 use ExtUtils::MakeMaker 6.30;
 
@@ -26,7 +26,10 @@ my %WriteMakefileArgs = (
     "Carp" => 0,
     "HTTP::Tiny" => 0,
     "JSON" => 0,
+    "Moo" => 0,
     "Try::Tiny" => 0,
+    "Type::Utils" => 0,
+    "Types::Standard" => 0,
     "URI" => 0,
     "URI::QueryParam" => 0,
     "strict" => 0,
@@ -38,7 +41,7 @@ my %WriteMakefileArgs = (
     "Test::Fatal" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "v0.0.1",
+  "VERSION" => "v0.0.2",
   "test" => {
     "TESTS" => "t/*.t"
   }
