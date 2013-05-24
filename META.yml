@@ -1,23 +1,27 @@
 ---
-abstract: 'Synchronous and asynchronous interfaces to This Is My Jam'
+abstract: "Synchronous and asynchronous interfaces to This Is My Jam\r"
 author:
-  - 'Sanko Robinson <sanko@cpan.org>'
+  - "Sanko Robinson <sanko@cpan.org> - http://sankorobinson.com/\r"
 build_requires:
-  File::Find: 0
-  File::Temp: 0
-  Module::Build: 0.3601
   Test::Fatal: 0
   Test::More: 0
 configure_requires:
-  ExtUtils::MakeMaker: 6.30
-  Module::Build: 0.3601
+  Module::Build::Tiny: 0.020
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.130880'
+generated_by: 'Dist::Milla version v1.0.2, Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.130880'
 license: artistic_2
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: WWW-ThisIsMyJam
+no_index:
+  directory:
+    - t
+    - xt
+    - inc
+    - share
+    - eg
+    - examples
 recommends:
   AnyEvent: 0
   AnyEvent::HTTP: 0
@@ -33,8 +37,10 @@ requires:
   URI::QueryParam: 0
   perl: 5.010
   strict: 0
+  version: 0
   warnings: 0
 resources:
+  bugtracker: https://github.com/sanko/www-thisismyjam/issues
   homepage: https://github.com/sanko/www-thisismyjam
   repository: https://github.com/sanko/www-thisismyjam.git
-version: v0.0.3
+version: v0.1.0

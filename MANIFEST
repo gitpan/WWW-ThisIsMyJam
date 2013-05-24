@@ -2,13 +2,12 @@ Build.PL
 Changes
 LICENSE
 MANIFEST
+META.json
 META.yml
-Makefile.PL
 README
 TODO
 ex/jamdump.pl
 lib/WWW/ThisIsMyJam.pm
-t/00-compile.t
 t/async.t
 t/person.t
 t/release-pod-syntax.t

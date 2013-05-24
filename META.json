@@ -1,0 +1,79 @@
+{
+   "abstract" : "Synchronous and asynchronous interfaces to This Is My Jam\r",
+   "author" : [
+      "Sanko Robinson <sanko@cpan.org> - http://sankorobinson.com/\r"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Milla version v1.0.2, Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.130880",
+   "license" : [
+      "artistic_2"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "WWW-ThisIsMyJam",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "xt",
+         "inc",
+         "share",
+         "eg",
+         "examples"
+      ]
+   },
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "Module::Build::Tiny" : "0.020"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Test::Pod" : "1.41"
+         }
+      },
+      "runtime" : {
+         "recommends" : {
+            "AnyEvent" : "0",
+            "AnyEvent::HTTP" : "0"
+         },
+         "requires" : {
+            "Carp" : "0",
+            "HTTP::Tiny" : "0",
+            "JSON::Tiny" : "0",
+            "Moo" : "0",
+            "Try::Tiny" : "0",
+            "Type::Utils" : "0",
+            "Types::Standard" : "0",
+            "URI" : "0",
+            "URI::QueryParam" : "0",
+            "perl" : "5.010",
+            "strict" : "0",
+            "version" : "0",
+            "warnings" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Test::Fatal" : "0",
+            "Test::More" : "0"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/sanko/www-thisismyjam/issues"
+      },
+      "homepage" : "https://github.com/sanko/www-thisismyjam",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/sanko/www-thisismyjam.git",
+         "web" : "https://github.com/sanko/www-thisismyjam"
+      }
+   },
+   "version" : "v0.1.0"
+}
+
