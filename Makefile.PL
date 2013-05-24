@@ -25,7 +25,7 @@ my %WriteMakefileArgs = (
   "PREREQ_PM" => {
     "Carp" => 0,
     "HTTP::Tiny" => 0,
-    "JSON" => 0,
+    "JSON::Tiny" => 0,
     "Moo" => 0,
     "Try::Tiny" => 0,
     "Type::Utils" => 0,
@@ -41,7 +41,7 @@ my %WriteMakefileArgs = (
     "Test::Fatal" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "v0.0.2",
+  "VERSION" => "v0.0.3",
   "test" => {
     "TESTS" => "t/*.t"
   }

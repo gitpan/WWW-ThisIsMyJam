@@ -24,7 +24,7 @@ recommends:
 requires:
   Carp: 0
   HTTP::Tiny: 0
-  JSON: 0
+  JSON::Tiny: 0
   Moo: 0
   Try::Tiny: 0
   Type::Utils: 0
@@ -37,4 +37,4 @@ requires:
 resources:
   homepage: https://github.com/sanko/www-thisismyjam
   repository: https://github.com/sanko/www-thisismyjam.git
-version: v0.0.2
+version: v0.0.3

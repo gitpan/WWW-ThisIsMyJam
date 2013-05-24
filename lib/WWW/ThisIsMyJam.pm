@@ -1,11 +1,11 @@
 package WWW::ThisIsMyJam;
 
 # ABSTRACT: Synchronous and asynchronous interfaces to This Is My Jam
-our $VERSION = v0.0.2;
+our $VERSION = v0.0.3;
 use strict;
 use warnings;
 use Carp;
-use JSON;
+use JSON::Tiny;
 use Try::Tiny;
 use HTTP::Tiny;
 use URI;
@@ -89,6 +89,12 @@ our %API = (
                  params   => [qw[id cb]],
                  required => [qw[id]],
                  returns  => 'ArrayRef[Comment]'
+    },
+    related => {path     => 'jams/:id/related',
+                method   => 'GET',
+                params   => [qw[id cb]],
+                required => [qw[id]],
+                returns  => 'ArrayRef[Jam]'
     },
     like => {path         => 'jams/:id/like',
              method       => 'POST',
@@ -194,7 +200,7 @@ our %API = (
                required     => [],
                returns      => 'HashRef',
                authenticate => 1
-    },
+    }
 );
 for my $method (keys %API) {
     eval sprintf
@@ -231,7 +237,7 @@ sub _request {
 sub _decode_json {
     my $s    = shift;
     my $json = shift;
-    my $data = try { decode_json $json }
+    my $data = try { JSON::Tiny::j($json) }
     catch { croak "Can't decode '$json': $_" };
     return $data;
 }
@@ -424,6 +430,15 @@ Returns a list of the comments that have been added to a jam.
     # What you say?
     $timj->comments({ id => '4zugtyg' });
 
+=head3 related( id )
+
+Returns a list of jams that may be related (musically or otherwise) to the
+specified jam. Only works on active jams and not to be confused with
+L<C<related_jams( username )>|/"related_jams( username )">.
+
+    # All of these things are just like the other
+    $timj->related({ id => '5sd5q1b' });
+
 =head3 like( id )
 
 Like a jam. You can only like jams that are currently active. Requires
@@ -449,7 +464,7 @@ Post a new comment on a jam. Requires L<authentication|Authentication>.
 
 Returns a list of people who rejammed this jam.
 
-    # Find out *true* fans of this jam
+    # Find *true* fans of this jam
     $timj->rejammers({ id => '4zugtyg' });
 
 =head2 Comments
@@ -503,7 +518,8 @@ Returns a list of jams from people who have just joined This Is My Jam.
 
 =head3 related_jams( username )
 
-A list of jams related to username's current jam.
+A list of jams related to username's current jam. Easily but not to be
+confused with L<C<related( id )>|/"related( id )">.
 
     # Grab jams related to the current Jam of the Day
     $timj->related_jams({ username => 'jamoftheday' });
@@ -522,13 +538,18 @@ Search methods return lists of related material. With great power...
 =head3 search_jams( by, q )
 
 Searching by artist will return jams by or similar to the requested artist.
-Genre search is powered by Last.fm tag search.
+Genre search is powered by Last.fm tag search. Hashtag support is experimental
+(no pagination, might be slow so use the
+L<asynchronus interface|/"Asynchronus Callbacks">).
 
     # Find jams similar to those by The Knife
     $timj->search_jams({ by => 'artist', q => 'the knife' });
 
     # Find electronica jams
     $timj->search_jams({ by => 'genre', q => 'electro' });
+
+    # Find jams with descriptions containing #jolly hashtags
+    $timj->search_jams({ by => 'hashtag', q => 'jolly' }); # Note missing #
 
 =head3 search_people( by, q )
 
@@ -650,7 +671,7 @@ WWW::ThisIsMyJam will support OAuth.
 
 =item * L<HTTP::Tiny>
 
-=item * L<JSON>
+=item * L<JSON::Tiny>
 
 =item * L<Carp>
 

@@ -18,7 +18,7 @@ my %module_build_args = (
     "Sanko Robinson <sanko\@cpan.org>"
   ],
   "dist_name" => "WWW-ThisIsMyJam",
-  "dist_version" => "v0.0.2",
+  "dist_version" => "v0.0.3",
   "license" => "artistic_2",
   "module_name" => "WWW::ThisIsMyJam",
   "recommends" => {
@@ -29,7 +29,7 @@ my %module_build_args = (
   "requires" => {
     "Carp" => 0,
     "HTTP::Tiny" => 0,
-    "JSON" => 0,
+    "JSON::Tiny" => 0,
     "Moo" => 0,
     "Try::Tiny" => 0,
     "Type::Utils" => 0,

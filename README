@@ -137,6 +137,14 @@ Methods
         # What you say?
         $timj->comments({ id => '4zugtyg' });
 
+   related( id )
+    Returns a list of jams that may be related (musically or otherwise) to
+    the specified jam. Only works on active jams and not to be confused with
+    "related_jams( username )".
+
+        # All of these things are just like the other
+        $timj->related({ id => '5sd5q1b' });
+
    like( id )
     Like a jam. You can only like jams that are currently active. Requires
     authentication.
@@ -158,7 +166,7 @@ Methods
    rejammers( id )
     Returns a list of people who rejammed this jam.
 
-        # Find out *true* fans of this jam
+        # Find *true* fans of this jam
         $timj->rejammers({ id => '4zugtyg' });
 
   Comments
@@ -202,7 +210,8 @@ Methods
         $timj->newbie_jams();
 
    related_jams( username )
-    A list of jams related to username's current jam.
+    A list of jams related to username's current jam. Easily but not to be
+    confused with "related( id )".
 
         # Grab jams related to the current Jam of the Day
         $timj->related_jams({ username => 'jamoftheday' });
@@ -218,13 +227,18 @@ Methods
 
    search_jams( by, q )
     Searching by artist will return jams by or similar to the requested
-    artist. Genre search is powered by Last.fm tag search.
+    artist. Genre search is powered by Last.fm tag search. Hashtag support
+    is experimental (no pagination, might be slow so use the asynchronus
+    interface).
 
         # Find jams similar to those by The Knife
         $timj->search_jams({ by => 'artist', q => 'the knife' });
 
         # Find electronica jams
         $timj->search_jams({ by => 'genre', q => 'electro' });
+
+        # Find jams with descriptions containing #jolly hashtags
+        $timj->search_jams({ by => 'hashtag', q => 'jolly' }); # Note missing #
 
    search_people( by, q )
     You can either search for people by name, artist and track. Searching by
@@ -337,7 +351,7 @@ Dependencies
 
     *   HTTP::Tiny
 
-    *   JSON
+    *   JSON::Tiny
 
     *   Carp
 
